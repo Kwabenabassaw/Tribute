@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Heart, Users, Church, BookOpen, ChevronDown, Quote, Clock, MapPin, UserCheck, Star } from 'lucide-react';
-import './index.css';
-import img from './assets/flyer.jpg'
+import { Heart, Users, Church, BookOpen, ChevronDown, Quote, Clock, MapPin, UserCheck, Star, Home } from 'lucide-react';
+
 export default function App() {
   const [activeTribute, setActiveTribute] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -29,6 +28,25 @@ export default function App() {
 
   // Tribute Data
   const tributes = [
+    {
+      id: 'family',
+      title: 'Tribute from the Family',
+      subtitle: 'Asona Abusua',
+      icon: <Home className="w-6 h-6 mb-2" />,
+      content: [
+        "Late Paul Kwabena Kankam and late Martha Dwomoh gave birth to Stephen Kankam on 4th August, 1964.",
+        "Today, we gather with heavy hearts to honor and celebrate the life of our beloved brother, uncle, father and everything to this family.",
+        "The Bible says; in 2 Timothy 4:7 “ I have fought the good fight, I have finished the good race, I have kept the faith.”",
+        "Stephen Kankam (we used to call him KWAME Opoku by birth name).",
+        "He started his education at M’teng R/C and even served at the catholic church as man servants. He then continued his education at Hwidiem SHS after the secondary education he then further to the tertiary level at Kumasi Polytechnic.",
+        "After graduating from the tertiary education he went back to his father’s hometown to start a living, then he met his wife there and married her with their first child.",
+        "KWAME Opoku travel to Gabon for two years and then came back home. He then travel to UK for some month for some business matters and came back home.",
+        "After his journey he enrolled himself in Farming for his life time.",
+        "Asona Abusua, we have lost a big pillar in our family. Wherever you call him, whether rain or shine he will come in our aid.",
+        "Owuo ay3 yen ade! Your passion for God’s work lives in us. You may be gone from our sight but not from our heart.",
+        "Damirifa Duei! Duei ne amanehunu!! Y3 ma wo nante yie!!!"
+      ]
+    },
     {
       id: 'widow',
       title: 'Tribute by the Widow',
@@ -197,7 +215,7 @@ export default function App() {
               <div className="relative w-full max-w-md aspect-[3/4] bg-[#fbf8f1] rounded-xl overflow-hidden border-4 border-[#d4af37] shadow-2xl flex items-center justify-center group">
                  {/* Replace this placeholder src with your actual uploaded image URL once hosted */}
                  <img 
-                   src={img} 
+                   src="https://images.unsplash.com/photo-1614849963640-9b533a1e2633?q=80&w=2070&auto=format&fit=crop" 
                    alt="Funeral Poster Placeholder" 
                    className="object-cover w-full h-full absolute inset-0 opacity-49 transition-opacity duration-500 group-hover:opacity-70"
                    onError={(e) => { e.target.style.display = 'none'; }}
@@ -389,10 +407,4 @@ export default function App() {
       </footer>
     </div>
   );
-}
-
-const rootElement = document.getElementById('app');
-if (rootElement) {
-  const root = createRoot(rootElement);
-  root.render(<App />);
 }
