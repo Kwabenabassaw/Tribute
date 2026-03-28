@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Heart, Users, Church, BookOpen, ChevronDown, Quote, Clock, MapPin, UserCheck, Star, Home } from 'lucide-react';
+import './index.css';
+import img from './assets/flyer.jpg'
+
+
 
 export default function App() {
   const [activeTribute, setActiveTribute] = useState(0);
@@ -215,7 +219,7 @@ export default function App() {
               <div className="relative w-full max-w-md aspect-[3/4] bg-[#fbf8f1] rounded-xl overflow-hidden border-4 border-[#d4af37] shadow-2xl flex items-center justify-center group">
                  {/* Replace this placeholder src with your actual uploaded image URL once hosted */}
                  <img 
-                   src="https://images.unsplash.com/photo-1614849963640-9b533a1e2633?q=80&w=2070&auto=format&fit=crop" 
+                   src={img}
                    alt="Funeral Poster Placeholder" 
                    className="object-cover w-full h-full absolute inset-0 opacity-49 transition-opacity duration-500 group-hover:opacity-70"
                    onError={(e) => { e.target.style.display = 'none'; }}
@@ -406,5 +410,14 @@ export default function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+const rootElement = document.getElementById('app');
+if (rootElement) {
+  createRoot(rootElement).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   );
 }
